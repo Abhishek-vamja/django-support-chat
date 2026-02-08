@@ -1,0 +1,77 @@
+<div id="support-chat-root" class="sc-root">
+  <!-- Floating Action Button -->
+  <button id="support-chat-open" class="sc-fab" aria-label="Open chat" title="Chat with us">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </button>
+
+  <!-- Chat Panel -->
+  <div id="support-chat-panel" class="sc-panel" aria-hidden="true">
+    <!-- Header -->
+    <div class="sc-header">
+       <div class="sc-header-content">
+        <h3 class="sc-title">Support Team</h3>
+        <p class="sc-subtitle">We typically reply in minutes</p>
+      </div>
+      <button id="sc-close" class="sc-close" aria-label="Close chat">✕</button>
+    </div>
+
+    <!-- Pre-chat Form (shown before session starts) -->
+    <form id="sc-prechat" class="sc-form sc-prechat" aria-hidden="false">
+      <div class="sc-prechat-row">
+        <label class="sc-prechat-label">Your Name</label>
+        <input id="sc-name" class="sc-input" placeholder="Enter your full name" autocomplete="name" required />
+      </div>
+      <div class="sc-prechat-row">
+        <label class="sc-prechat-label">Email Address</label>
+        <input id="sc-email" class="sc-input" placeholder="Enter your email" type="email" autocomplete="email" required />
+      </div>
+      <button type="submit" class="sc-start" aria-label="Start chat">Start Chat</button>
+    </form>
+
+    <!-- Messages Area (hidden until session starts) -->
+    <div id="sc-messages" class="sc-messages" role="log" aria-live="polite" aria-hidden="true"></div>
+
+    <!-- Message Input Form (hidden until session starts) -->
+    <form id="sc-form" class="sc-form" aria-hidden="true">
+      <input id="sc-input" class="sc-input" placeholder="Type your message..." autocomplete="off" />
+      <button type="submit" class="sc-send" aria-label="Send message">➤</button>
+    </form>
+
+    <!-- Footer with End Chat Button (shown during chat) -->
+    <div id="sc-footer" class="sc-footer" aria-hidden="true">
+      <button id="sc-end-chat" class="sc-end-chat" aria-label="End conversation">End Chat</button>
+    </div>
+  </div>
+
+  <!-- Feedback Modal (overlay) -->
+  <div id="sc-feedback-modal" class="sc-modal" style="display: none;">
+    <div class="sc-modal-content">
+      <div class="sc-modal-header">
+        <h3>How was your experience?</h3>
+        <button id="sc-modal-close" class="sc-modal-close" aria-label="Close modal">✕</button>
+      </div>
+      <div class="sc-modal-body">
+        <div class="sc-rating-group">
+          <label>Rate your experience</label>
+          <div class="sc-stars">
+            <button class="sc-star" data-rating="1" title="Poor" type="button">★</button>
+            <button class="sc-star" data-rating="2" title="Fair" type="button">★</button>
+            <button class="sc-star" data-rating="3" title="Good" type="button">★</button>
+            <button class="sc-star" data-rating="4" title="Very Good" type="button">★</button>
+            <button class="sc-star" data-rating="5" title="Excellent" type="button">★</button>
+          </div>
+        </div>
+        <div class="sc-feedback-group">
+          <label>Additional feedback (optional)</label>
+          <textarea id="sc-feedback-text" class="sc-textarea" placeholder="Tell us how we can improve..."></textarea>
+        </div>
+      </div>
+      <div class="sc-modal-footer">
+        <button id="sc-feedback-cancel" class="sc-btn-secondary" type="button">Cancel</button>
+        <button id="sc-feedback-submit" class="sc-btn-primary" type="button">Submit & Close</button>
+      </div>
+    </div>
+  </div>
+</div>

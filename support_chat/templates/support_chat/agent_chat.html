@@ -1,0 +1,25 @@
+<div class="chat-header">
+    <div class="chat-header-info">
+        <h2>{{ visitor.name }}</h2>
+        <p>{{ visitor.email }}</p>
+    </div>
+</div>
+
+<div id="messagesArea" class="messages-area">
+    {% for msg in messages %}
+    <div class="message {{ msg.sender_type }}" data-message-id="{{ msg.id }}">
+        <div class="message-bubble">{{ msg.message }}</div>
+    </div>
+    {% empty %}
+    <div style="text-align: center; color: #999; padding: 40px 20px; width: 100%;">
+        No messages yet - Start typing to begin the conversation
+    </div>
+    {% endfor %}
+</div>
+
+{% if conversation.status != 'closed' %}
+<div class="input-area" id="inputArea">
+    <input type="text" id="messageInput" class="input-area input" placeholder="Type your message..." autocomplete="off">
+    <button class="btn-send" id="btnSend">Send</button>
+</div>
+{% endif %}

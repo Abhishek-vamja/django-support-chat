@@ -1,0 +1,32 @@
+<!-- Example: products.html - Products page -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Products - My Website{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Our Products</h1>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="text-muted">
+                    <strong>${{ product.price }}</strong>
+                </p>
+                <a href="/products/{{ product.id }}/" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="alert alert-info mt-4">
+    <h4>Need Help Choosing?</h4>
+    <p>Chat with our team using the widget in the bottom right corner. We can help you find the perfect product!</p>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+<!-- Example: contact.html - Contact page with prominent chat -->
+{% extends 'base.html' %}
+{% load static %}
+{% load support_chat_tags %}
+
+{% block title %}Contact Us - My Website{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Contact Us</h1>
+
+<div class="row">
+    <!-- Contact Form Section -->
+    <div class="col-md-6">
+        <h3>Send us a Message</h3>
+        <form method="POST" action="/contact/submit/">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Chat Support Section -->
+    <div class="col-md-6">
+        <h3>Live Chat Support</h3>
+        <p>Prefer to chat? Click the button below or use the chat widget in the corner.</p>
+        
+        <div class="card bg-light p-4">
+            <h5>Quick Chat</h5>
+            <p class="text-muted">Get instant answers from our support team</p>
+            
+            <!-- Widget embedded inline on contact page -->
+            <div class="mt-3 p-3 border rounded">
+                {% support_chat_widget %}
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h5>Other Ways to Reach Us</h5>
+            <ul class="list-unstyled">
+                <li>📧 Email: support@example.com</li>
+                <li>📞 Phone: +1 (555) 000-0000</li>
+                <li>🕐 Hours: Mon-Fri, 9AM-6PM EST</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

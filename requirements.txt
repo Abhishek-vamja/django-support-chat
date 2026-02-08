@@ -1,0 +1,5 @@
+Django>=3.2
+channels>=3.0
+daphne
+asgiref
+redis

@@ -1,0 +1,45 @@
+<!-- Example: home.html - Homepage extending base.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - My Website{% endblock %}
+
+{% block content %}
+<section class="hero py-5">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">Welcome to My Website</h1>
+        <p class="lead">We're here to help you succeed</p>
+        <p class="text-muted">Have questions? Use the chat widget in the bottom right corner!</p>
+        <a href="/products/" class="btn btn-primary btn-lg mt-3">Browse Products</a>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Fast Support</h5>
+                    <p class="card-text">Get answers in minutes, not hours</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Expert Team</h5>
+                    <p class="card-text">Our support agents are highly trained</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">24/7 Available</h5>
+                    <p class="card-text">Always here when you need us</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

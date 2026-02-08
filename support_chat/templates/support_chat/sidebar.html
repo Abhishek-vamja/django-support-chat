@@ -1,0 +1,44 @@
+<!-- Waiting Conversations -->
+<div class="section-title">🔔 Waiting ({{ waiting_conversations.count }})</div>
+{% for conv in waiting_conversations %}
+<div class="conversation-item" data-conv-id="{{ conv.id }}" data-status="waiting">
+    <div class="conv-header">
+        <span class="conv-name">{{ conv.visitor.name }}</span>
+        <span class="conv-status status-waiting">Waiting</span>
+    </div>
+    <div class="conv-email">{{ conv.visitor.email }}</div>
+    <div class="conv-time">{{ conv.started_at|date:"H:i" }}</div>
+</div>
+{% empty %}
+<div style="padding: 16px 20px; color: #999; font-size: 13px;">No waiting conversations</div>
+{% endfor %}
+
+<!-- Active Conversations -->
+<div class="section-title">💬 Active ({{ active_conversations.count }})</div>
+{% for conv in active_conversations %}
+<div class="conversation-item" data-conv-id="{{ conv.id }}" data-status="active">
+    <div class="conv-header">
+        <span class="conv-name">{{ conv.visitor.name }}</span>
+        <span class="conv-status status-active">Active</span>
+    </div>
+    <div class="conv-email">{{ conv.visitor.email }}</div>
+    <div class="conv-time">{{ conv.started_at|date:"H:i" }}</div>
+</div>
+{% empty %}
+<div style="padding: 16px 20px; color: #999; font-size: 13px;">No active conversations</div>
+{% endfor %}
+
+<!-- Closed Conversations -->
+<div class="section-title">✓ Closed ({{ closed_conversations.count }})</div>
+{% for conv in closed_conversations %}
+<div class="conversation-item" data-conv-id="{{ conv.id }}" data-status="closed">
+    <div class="conv-header">
+        <span class="conv-name">{{ conv.visitor.name }}</span>
+        <span class="conv-status status-closed">Closed</span>
+    </div>
+    <div class="conv-email">{{ conv.visitor.email }}</div>
+    <div class="conv-time">{{ conv.ended_at|date:"H:i" }}</div>
+</div>
+{% empty %}
+<div style="padding: 16px 20px; color: #999; font-size: 13px;">No closed conversations</div>
+{% endfor %}
